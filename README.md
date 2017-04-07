@@ -24,7 +24,7 @@ JSON Hiera:
   "update::git_account_name": "YOUR_GIT_ACCOUNT_WHERE_PUPPET_CONF_IS",
   "update::git_email": "THE_EMAIL_OF_THE_GIT_USER",
   "update::git_password": "GIT_USER_PASSWORD",
-  "update::git_repo_name": "THE_GIT_REPO_NAME_WHERE_PUPPER_CONF_IS"
+  "update::git_repo_name": "THE_GIT_REPO_NAME_WHERE_PUPPER_CONF_IS",
   "update::git_user": "GIT_USER",
   "update::git_username": "GIT_USERNAME (optional)",
   "update::hiera_file": "THE_HIERA_FILE_TO_WRITE_RESOURCE_TO (Fact in name is a good idea)",
