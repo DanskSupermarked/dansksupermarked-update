@@ -26,7 +26,7 @@ Then create a GIT PR to be reviewed, eventually edited, and finally merged in yo
 
 
 ## TODO
-- Added class param doc.
+- Add class param doc.
 - Add Hiera configuration example.
 
 #### Copyright
