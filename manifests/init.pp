@@ -65,7 +65,7 @@ class update(
 
   file {'generate_list':
     mode    => '0700',
-    path    => "${script_path}/generate_list.py"
+    path    => "${script_path}/generate_list.py",
     replace => false,
     source  => 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/master/app/generate_list.py',
   }
