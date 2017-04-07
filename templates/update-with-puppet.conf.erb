@@ -1,0 +1,35 @@
+[General]
+cwd=<%= @working_dir %>
+file=<%= @hiera_file %>
+hiera_folder=hiera
+proxy=<%= @proxy %>
+
+[GIT]
+account_name=<%= @git_account_name %>
+dest_branch=<%= @dest_branch %>
+email=<%= @git_email %>
+name=<%= @git_repo_name %>
+password=<%= @git_password %>
+url=<%= @git_url %>
+user=<%= @git_user %>
+username=<%= @git_username %>
+repo_name=<%= @git_repo_name %>
+src_branch=<%= @src_branch %>
+work_branch=<%= @working_branch %>
+
+[Package]
+bundle=<%= @bundle_dep %>
+install_from_cache=<%= @install_from_cache %>
+merge=<%= @merge_resources %>
+pkg_repos=<%= @repo_filter %>
+repo_in_resource=<%= @repo_in_resource %>
+require=<%= @require_repo %>
+root_key=<%= @hiera_pkg_root_key %>
+save=<%= @save_hiera %>
+wrap=<%= @wrap_resources %>
+
+[PR]
+api_url=<%= @git_api_url %>
+description=<%= @pr_description %>
+reviewers=<%= @pr_reviewers %>
+title=<%= @pr_title %>
