@@ -1,6 +1,6 @@
 ---
 language: ruby
-script: bundle exec rake spec
+script: "bundle exec rake validate && bundle exec rake lint && bundle exec rake spec"
 matrix:
   fast_finish: true
   include:
