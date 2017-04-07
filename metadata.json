@@ -29,7 +29,13 @@
         "25"
       ]
     }
-],
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">=3.0 <5.0.0"
+    }
+  ],
   "tags": [
     "dnf",
     "rpm",
