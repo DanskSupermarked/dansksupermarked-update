@@ -35,5 +35,7 @@
     "redhat",
     "rpm",
     "yum"
+  ],
+  "dependencies": [
   ]
 }
