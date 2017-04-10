@@ -61,24 +61,24 @@ class update(
 
   file {'send_pull_request.py':
     mode    => '0700',
-    path    => "${script_path}/${title}",
+    path    => "${script_path}/send_pull_request.py",
     replace => $file_replace,
-    source  => "${file_src_base_uri}/${title}",
+    source  => "${file_src_base_uri}/send_pull_request.py",
   }
 
   file {'generate_list.py':
     mode    => '0700',
-    path    => "${script_path}/${title}",
+    path    => "${script_path}/generate_list.py",
     replace => $file_replace,
-    source  => "${file_src_base_uri}/${title}",
+    source  => "${file_src_base_uri}/generate_list.py",
   }
 
   file {'update_context.py':
     mode    => '0700',
-    path    => "${script_path}/${title}",
+    path    => "${script_path}/update_context.py",
     replace => $file_replace,
     require => [File['send_pull_request.py'], File['generate_list.py'], File[$working_dir], File['update-with-puppet.conf']],
-    source  => "${file_src_base_uri}/${title}",
+    source  => "${file_src_base_uri}/update_context.py",
   }
 
   file {'update-with-puppet.conf':
