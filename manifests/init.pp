@@ -85,7 +85,7 @@ class update(
   $script_path        = '/usr/local/bin',
   $src_branch         = $::environment,
   $working_branch     = '',
-  $working_dir        = '/tmp/update_machine',
+  $working_dir        = '/tmp/update',
   $wrap_resources     = true
 ) {
 

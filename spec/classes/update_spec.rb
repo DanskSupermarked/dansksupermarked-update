@@ -9,6 +9,7 @@ describe 'update' do
     it { should contain_file('generate_list.py').with_path('/usr/local/bin/generate_list.py') }
     it { should contain_file('update_context.py').with_path('/usr/local/bin/update_context.py') }
     it { should contain_file('update-with-puppet.conf').with_path('/etc/update-with-puppet.conf') }
+    it { should contain_file('/tmp/update').with_path('/tmp/update') }
     it { should contain_package('git') }
   end
 
@@ -19,6 +20,7 @@ describe 'update' do
     it { should contain_file('generate_list.py').with_path('/usr/local/bin/generate_list.py') }
     it { should contain_file('update_context.py').with_path('/usr/local/bin/update_context.py') }
     it { should contain_file('update-with-puppet.conf').with_path('/etc/update-with-puppet.conf') }
+    it { should contain_file('/tmp/update').with_path('/tmp/update') }
     it { should contain_package('git') }
   end
 
