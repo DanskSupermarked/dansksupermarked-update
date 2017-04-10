@@ -17,6 +17,9 @@ class update(
   $cron_hour          = 6,
   $cron_monthday      = 1,
   $dest_branch        = $::environment,
+  $file_src_base_uri  = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/master/app',
+  $file_replace       = false,
+  $generate_pr        = false,
   $git_account_name   = '',
   $git_email          = '',
   $git_package_ensure = 'present',
@@ -56,28 +59,26 @@ class update(
     require  => File['update_context'],
   }
 
-  file {'send_pull_request':
+  file {'send_pull_request.py':
     mode    => '0700',
-    path    => "${script_path}/send_pull_request.py",
-    replace => false,
-    source  => 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/master/app/send_pull_request.py',
+    path    => "${script_path}/${title}",
+    replace => $file_replace,
+    source  => "${file_src_base_uri}/${title}",
   }
 
-  file {'generate_list':
+  file {'generate_list.py':
     mode    => '0700',
-    path    => "${script_path}/generate_list.py",
-    replace => false,
-    source  => 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/master/app/generate_list.py',
+    path    => "${script_path}/${title}",
+    replace => $file_replace,
+    source  => "${file_src_base_uri}/${title}",
   }
 
-  file {'update_context':
-    content => file('update/update_context.py'),
+  file {'update_context.py':
     mode    => '0700',
-    path    => "${script_path}/update_context.py",
-    replace => false,
-    require => [File['send_pull_request'], File['generate_list'], File[$working_dir], File['update-with-puppet.conf']],
-    source  => 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/master/app/update_context.py',
-
+    path    => "${script_path}/${title}",
+    replace => $file_replace,
+    require => [File['send_pull_request.py'], File['generate_list.py'], File[$working_dir], File['update-with-puppet.conf']],
+    source  => "${file_src_base_uri}/${title}",
   }
 
   file {'update-with-puppet.conf':

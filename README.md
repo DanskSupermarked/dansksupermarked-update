@@ -7,6 +7,7 @@ Would like that list of packages to be injected in your Puppet code?
 
 ## How it Works
 The module will help you configure and schedule [update-with-puppet](https://github.com/DanskSupermarked/update-with-puppet).
+By default the module will poll once GitHub for [update-with-puppet](https://github.com/DanskSupermarked/update-with-puppet), this feature is only supported since [Puppet 4.4](https://docs.puppet.com/puppet/latest/type.html#file-attribute-source). The 'file_src_base_uri' and 'file_replace' parameters can be overwritten to change that behavior and load the [three Python files](https://github.com/DanskSupermarked/update-with-puppet/tree/master/app) via one of the other supported Puppet sources.
 
 The CRON job will be set for the day and hour defined, the minute of execution will be randomly generated to avoid running at the same time on multiple nodes in the same environment.
 
@@ -18,9 +19,11 @@ You're then free to have those Package resources updated by Puppet.
 
 ## Example
 After assigning the update class to a node, the following parameters should be set.
+
 JSON Hiera:
 ```json
 {
+  "update::generate_pr": true,
   "update::git_account_name": "YOUR_GIT_ACCOUNT_WHERE_PUPPET_CONF_IS",
   "update::git_email": "THE_EMAIL_OF_THE_GIT_USER",
   "update::git_password": "GIT_USER_PASSWORD",
@@ -47,7 +50,7 @@ Then create a GIT PR to be reviewed, eventually edited, and finally merged in yo
 - BitBucket API for pull request creation.
 
 
-## TODO
+## TODO (also [see](https://github.com/DanskSupermarked/update-with-puppet#todo))
 - Add class param doc.
 
 #### Copyright
