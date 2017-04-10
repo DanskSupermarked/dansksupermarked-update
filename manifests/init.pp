@@ -56,7 +56,7 @@ class update(
     hour     => $cron_hour,
     minute   => fqdn_rand(60),
     monthday => $cron_monthday,
-    require  => File['update_context'],
+    require  => File['update_context.py'],
   }
 
   file {'send_pull_request.py':
