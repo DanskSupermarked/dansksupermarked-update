@@ -1,6 +1,47 @@
 # Class: update
 # ===========================
 #
+# The module will help you configure and schedule update-with-puppet.
+#
+# Parameters:
+#
+# [*bundle_dep*]
+#   If packages meant to be updated at once (such as -lib) should be
+#   bundled into Exec resources to succesfully update groups.
+#   These Exec resources will be created under a hiera key 'execs'.
+#
+# [*hiera_file*]
+#   The name of the Hiera file where the Package resources will be listed.
+#
+# [*hiera_pkg_root_key*]
+#   The Hiera key under which the Package resources will be written.
+#   Should be used in Puppet to lookup and create resources.
+#
+# [*install_from_cache*]
+#   Pass to the Package provider the option to force package install from
+#   already downloaded packages in cache.
+#
+# [*merge_resources*]
+#   Merge existing Package resources in the same Hiera file with new updates found.
+#
+# [*proxy*]
+#   Specify some HTTP proxy if needed to reach the GIT repository.
+#
+# [*repo_in_resource*]
+#   If the repository providing a package should be the only enabled repository
+#   passed as an option to the Package provider.
+#
+# [*require_repo*]
+#   Add to the Package resource a require => Yumrepo[] for the providing repository.
+#
+# [*save_hiera*]
+#   If the list of available packages for updates should be
+#   written to a Hiera file.
+#
+# [*wrap_resources*]
+#   Place Package resources under a common Hiera key to use for lookup.
+#   Used in combination with 'hiera_pkg_root_key'.
+#
 # Authors
 # -------
 #
