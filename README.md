@@ -13,7 +13,7 @@ The CRON job will be set for the day and hour defined, the minute of execution w
 
 The job will fetch from the package provider the updates available for the specified package repositories.
 A list of [Puppet Package](https://docs.puppet.com/puppet/latest/type.html#package) resource will be generated (For now as Hiera JSON).
-The list will be default create the Package resources under a Hiera key named 'packages' which should be used in your site.pp or other top level Puppet file to use a lookup key to create resources.
+The list will, by default, create the Package resources under a Hiera key named 'packages' which should be used in your site.pp or other top level Puppet file to use a lookup key to create resources.
 This list will be committed to a GIT repository where your Puppet configuration is.
 You're then free to have those Package resources updated by Puppet.
 
@@ -56,6 +56,7 @@ The module will attempt to install Python modules via RPM ('manage_python_deps' 
 
 ## Use Case
 A [CRON](https://docs.puppet.com/puppet/latest/type.html#cron) job will collect a list of packages to be updated.
+If a pull request with the defined 'pr_title' doesn't already exist, one can be created for data collected in that environemnt/branch.
 Then create a GIT PR to be reviewed, eventually edited, and finally merged in your Puppet configuration to have the packages updated during the next Puppet run.
 
 ## OS Support
@@ -65,10 +66,6 @@ Then create a GIT PR to be reviewed, eventually edited, and finally merged in yo
 ## Repository Support
 - GIT.
 - BitBucket API for pull request creation.
-
-
-## TODO (also [see](https://github.com/DanskSupermarked/update-with-puppet#todo))
-- Add class param doc.
 
 #### Copyright
 
