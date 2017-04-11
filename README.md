@@ -20,7 +20,8 @@ You're then free to have those Package resources updated by Puppet.
 ## Example
 After assigning the update class to a node, the following parameters should be set.
 
-JSON Hiera:
+### JSON Hiera
+- With GIT commit and Pull Request creation.
 ```json
 {
   "update::generate_pr": true,
@@ -32,6 +33,20 @@ JSON Hiera:
   "update::git_username": "GIT_USERNAME (optional)",
   "update::hiera_file": "THE_HIERA_FILE_TO_WRITE_RESOURCE_TO (Fact in name is a good idea)",
   "update::pr_reviewers": "LIST_OF_PR_REVIEWERS (optional)",
+  "update::repo_filter": "COMMA_SEPARATED_LIST_OF_YUM_REPO_TO_SEARCH",
+  "update::working_branch": "NAME_OF_GIT_BRANCH_TO_COMMIT_TO"
+}
+```
+- With GIT commit in a feature branch, no Pull Request.
+```json
+{
+  "update::git_account_name": "YOUR_GIT_ACCOUNT_WHERE_PUPPET_CONF_IS",
+  "update::git_email": "THE_EMAIL_OF_THE_GIT_USER",
+  "update::git_password": "GIT_USER_PASSWORD",
+  "update::git_repo_name": "THE_GIT_REPO_NAME_WHERE_PUPPER_CONF_IS",
+  "update::git_user": "GIT_USER",
+  "update::git_username": "GIT_USERNAME (optional)",
+  "update::hiera_file": "THE_HIERA_FILE_TO_WRITE_RESOURCE_TO (Fact in name is a good idea)",
   "update::repo_filter": "COMMA_SEPARATED_LIST_OF_YUM_REPO_TO_SEARCH",
   "update::working_branch": "NAME_OF_GIT_BRANCH_TO_COMMIT_TO"
 }
