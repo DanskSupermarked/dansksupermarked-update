@@ -37,7 +37,7 @@ JSON Hiera:
 }
 ```
 
-The module will attempt to install Python modules via RPM ('manage_python_deps' is set to true by default), one of them expects EPEL to be defined in Puppet as Yumrepo['epel']. You can also set the param to false and install those Python module via pip as site libraries.
+The module will attempt to install Python modules via RPM ('manage_python_deps' is set to true by default), one of them expects EPEL to be defined in Puppet as Yumrepo['epel']. You can also set the param to false and install those Python module via [pip](https://github.com/DanskSupermarked/update-with-puppet/blob/master/requirements.txt) as site libraries.
 
 ## Use Case
 A [CRON](https://docs.puppet.com/puppet/latest/type.html#cron) job will collect a list of packages to be updated.
