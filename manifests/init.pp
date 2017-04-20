@@ -59,6 +59,9 @@
 # [*hiera_file*]
 #   The name of the Hiera file where the Package resources will be listed.
 #
+# [*hiera_folder*]
+#   The folder in the GIT repository where the Hiera files should be created.
+#
 # [*hiera_pkg_root_key*]
 #   The Hiera key under which the Package resources will be written.
 #   Should be used in Puppet to lookup and create resources.
@@ -144,6 +147,7 @@ class update(
   $git_user           = '',
   $git_username       = '',
   $hiera_file         = "common_${::osfamily}_${::operatingsystemrelease}.json",
+  $hiera_folder       = 'hiera',
   $hiera_pkg_root_key = 'packages',
   $install_from_cache = false,
   $manage_git_package = true,
