@@ -132,11 +132,11 @@
 #
 class update(
   $bundle_dep         = true,
-  $conf_folder        = '/etc',
+  $conf_folder        = '/etc/update-with-puppet',
   $cron_hour          = 6,
   $cron_monthday      = 1,
   $dest_branch        = $::environment,
-  $file_src_base_uri  = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/master/app',
+  $file_src_base_uri  = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/1.3.0/app',
   $file_replace       = false,
   $generate_pr        = false,
   $git_account_name   = '',
@@ -150,6 +150,7 @@ class update(
   $hiera_folder       = 'hiera',
   $hiera_pkg_root_key = 'packages',
   $install_from_cache = false,
+  $manage_conf_folder = true,
   $manage_git_package = true,
   $manage_python_deps = true,
   $merge_resources    = true,
@@ -199,6 +200,13 @@ class update(
     replace => $file_replace,
     require => [File['send_pull_request.py'], File['generate_list.py'], File[$working_dir], File['update-with-puppet.conf']],
     source  => "${file_src_base_uri}/update_context.py",
+  }
+
+  if $manage_conf_folder {
+    file { $conf_folder:
+      ensure => 'directory',
+      notify => File['update-with-puppet.conf'],
+    }
   }
 
   file {'update-with-puppet.conf':

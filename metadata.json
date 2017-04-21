@@ -1,6 +1,6 @@
 {
   "name": "dansksupermarked-update",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "author": "Benjamin Merot",
   "summary": "Configure update-with-puppet to collect list of packages to update",
   "license": "GPL-3.0",
