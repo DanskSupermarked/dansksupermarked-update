@@ -67,6 +67,9 @@ Then create a GIT PR to be reviewed, eventually edited, and finally merged in yo
 - GIT.
 - BitBucket API for pull request creation.
 
+## When updating the module
+The code managed by this module is by default loaded from GitHub only once. To force their upgrade, set 'file_replace' to true.
+
 #### Copyright
 
 Copyright 2017 [Dansk Supermarked Group](https://dansksupermarked.com/) and released under the terms of the [GPL version 3 license](https://www.gnu.org/licenses/gpl-3.0-standalone.html).
