@@ -132,11 +132,12 @@
 #
 class update(
   $bundle_dep         = true,
+  $bundle_list_src    = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/1.4.0/conf/package_bundle.json',
   $conf_folder        = '/etc/update-with-puppet',
   $cron_hour          = 6,
   $cron_monthday      = 1,
   $dest_branch        = $::environment,
-  $file_src_base_uri  = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/1.3.0/app',
+  $file_src_base_uri  = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/1.4.0/app',
   $file_replace       = false,
   $generate_pr        = false,
   $git_account_name   = '',
@@ -205,8 +206,14 @@ class update(
   if $manage_conf_folder {
     file { $conf_folder:
       ensure => 'directory',
-      notify => File['update-with-puppet.conf'],
+      notify => [File['package_bundle.json'], File['update-with-puppet.conf']],
     }
+  }
+
+  file { 'package_bundle.json':
+    path    => "${conf_folder}/package_bundle.json",
+    replace => $file_replace,
+    source  => $bundle_list_src,
   }
 
   file {'update-with-puppet.conf':
