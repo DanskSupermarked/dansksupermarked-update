@@ -70,6 +70,9 @@
 #   Pass to the Package provider the option to force package install from
 #   already downloaded packages in cache.
 #
+# [*install_multilib*]
+#   Update both variants of a multilib package such as glibc for i686 and x86_64.
+#
 # [*manage_git_package*]
 #   Choose if the 'git' package should be installed.
 #   If set to false, ensure a git client is available in your $PATH.
@@ -132,12 +135,12 @@
 #
 class update(
   $bundle_dep         = true,
-  $bundle_list_src    = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/multilib/conf/package_bundle.json',
+  $bundle_list_src    = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/1.5.0/conf/package_bundle.json',
   $conf_folder        = '/etc/update-with-puppet',
   $cron_hour          = 6,
   $cron_monthday      = 1,
   $dest_branch        = $::environment,
-  $file_src_base_uri  = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/multilib/app',
+  $file_src_base_uri  = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/1.5.0/app',
   $file_replace       = false,
   $generate_pr        = false,
   $git_account_name   = '',
