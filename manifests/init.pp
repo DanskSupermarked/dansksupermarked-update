@@ -132,12 +132,12 @@
 #
 class update(
   $bundle_dep         = true,
-  $bundle_list_src    = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/1.4.0/conf/package_bundle.json',
+  $bundle_list_src    = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/multilib/conf/package_bundle.json',
   $conf_folder        = '/etc/update-with-puppet',
   $cron_hour          = 6,
   $cron_monthday      = 1,
   $dest_branch        = $::environment,
-  $file_src_base_uri  = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/1.4.0/app',
+  $file_src_base_uri  = 'https://raw.githubusercontent.com/DanskSupermarked/update-with-puppet/multilib/app',
   $file_replace       = false,
   $generate_pr        = false,
   $git_account_name   = '',
@@ -151,6 +151,7 @@ class update(
   $hiera_folder       = 'hiera',
   $hiera_pkg_root_key = 'packages',
   $install_from_cache = false,
+  $install_multilib   = true,
   $manage_conf_folder = true,
   $manage_git_package = true,
   $manage_python_deps = true,
