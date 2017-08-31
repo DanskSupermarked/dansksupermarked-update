@@ -32,7 +32,7 @@ describe 'update' do
 
   context 'without managing dependencies for RedHat 6' do
     let(:facts) { {:osfamily => 'RedHat', :operatingsystemmajrelease => '6', :operatingsystemrelease => '6.9'} }
-    let(:params) { { 'manage_git_package' => false, 'manage_python_deps' => false } }
+    let(:params) { { 'git_repo_name' => 'my_git_repo', 'manage_git_package' => false, 'manage_python_deps' => false } }
     it { should_not contain_package('git') }
     it { should_not contain_package('python-argparse') }
     it { should_not contain_package('python-configparser') }
@@ -40,7 +40,7 @@ describe 'update' do
 
   context 'without managing dependencies for RedHat 7' do
     let(:facts) { {:osfamily => 'RedHat', :operatingsystemmajrelease => '7', :operatingsystemrelease => '7.3'} }
-    let(:params) { { 'manage_git_package' => false, 'manage_python_deps' => false } }
+    let(:params) { { 'git_repo_name' => 'my_git_repo', 'manage_git_package' => false, 'manage_python_deps' => false } }
     it { should_not contain_package('git') }
     it { should_not contain_package('python-argparse') }
     it { should_not contain_package('python-configparser') }
